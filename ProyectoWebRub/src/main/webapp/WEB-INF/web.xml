@@ -12,11 +12,11 @@
   <servlet>
     <description>Un simple controlador de ejemplo</description>
     <display-name>nombreController</display-name>
-    <servlet-name>nombreController</servlet-name>
+    <servlet-name>xyz</servlet-name>
     <servlet-class>com.proyecto.nombreController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>nombreController</servlet-name>
+    <servlet-name>xyz</servlet-name>
     <url-pattern>/nombrecito</url-pattern>
   </servlet-mapping>
 </web-app>
