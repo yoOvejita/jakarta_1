@@ -5,10 +5,12 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class nombreController
@@ -52,7 +54,12 @@ public class nombreController extends HttpServlet {
 		//Tratamiento de parámetros
 		int num1 = Integer.parseInt(request.getParameter("n1"));
 		int num2 = Integer.parseInt(request.getParameter("n2"));
+		int respuesta = num1 + num2;
 		salida.append("<br/>La suma es: " + (num1 + num2));
+		
+		//Usando sesion
+		HttpSession session = request.getSession();
+		session.setAttribute("respuesta", respuesta);
 	}
 
 	/**
@@ -60,7 +67,15 @@ public class nombreController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
+		String valor1 = "Pepex";
+		/*
+		request.setAttribute("nombre", valor1);
+		RequestDispatcher var = request.getRequestDispatcher("segundo");
+		var.forward(request, response);
+		*/
+		response.sendRedirect("segundo");
 	}
 
 }
