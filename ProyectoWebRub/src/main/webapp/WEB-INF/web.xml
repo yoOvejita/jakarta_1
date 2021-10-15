@@ -29,4 +29,23 @@
     <servlet-name>segundoServlet</servlet-name>
     <url-pattern>/segundo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>coockiesController</display-name>
+    <servlet-name>coockiesController</servlet-name>
+    <servlet-class>com.proyecto.coockiesController</servlet-class>
+    <init-param>
+  		<param-name>dato</param-name>
+  		<param-value>Anita</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>coockiesController</servlet-name>
+    <url-pattern>/galletasGratis</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+  	<param-name>dato</param-name>
+  	<param-value>Sofia</param-value>
+  </context-param>
 </web-app>

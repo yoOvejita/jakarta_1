@@ -7,6 +7,7 @@ import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -60,6 +61,16 @@ public class nombreController extends HttpServlet {
 		//Usando sesion
 		HttpSession session = request.getSession();
 		session.setAttribute("respuesta", respuesta);
+		
+		
+		//Ejemplo de cookies
+		String dato = "";
+		Cookie[] galletitas = request.getCookies();
+		for(Cookie galleta : galletitas)
+			if(galleta.getName().equals("idUsuario"))
+				dato = galleta.getValue();
+		
+		salida.append("La cookie rescatada tenía el valor: " + dato);
 	}
 
 	/**
@@ -69,13 +80,22 @@ public class nombreController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		String valor1 = "Pepex";
+		//String valor1 = "Pepex";
 		/*
 		request.setAttribute("nombre", valor1);
 		RequestDispatcher var = request.getRequestDispatcher("segundo");
 		var.forward(request, response);
 		*/
-		response.sendRedirect("segundo");
+		
+		
+		//response.sendRedirect("segundo");
+		String dato = "";
+		Cookie[] galletitas = request.getCookies();
+		for(Cookie galleta : galletitas)
+			if(galleta.getName().equals("idUsuario"))
+				dato = galleta.getValue();
+		
+		response.getWriter().append("La cookie rescatada tenía el valor: " + dato);
 	}
 
 }
