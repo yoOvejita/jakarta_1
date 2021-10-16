@@ -2,6 +2,7 @@ package com.proyecto;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class nombreController extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("respuesta", respuesta);
 		
-		
+		/*
 		//Ejemplo de cookies
 		String dato = "";
 		Cookie[] galletitas = request.getCookies();
@@ -71,6 +72,7 @@ public class nombreController extends HttpServlet {
 				dato = galleta.getValue();
 		
 		salida.append("La cookie rescatada tenía el valor: " + dato);
+		*/
 	}
 
 	/**
@@ -87,7 +89,7 @@ public class nombreController extends HttpServlet {
 		var.forward(request, response);
 		*/
 		
-		
+		/*
 		//response.sendRedirect("segundo");
 		String dato = "";
 		Cookie[] galletitas = request.getCookies();
@@ -95,7 +97,16 @@ public class nombreController extends HttpServlet {
 			if(galleta.getName().equals("idUsuario"))
 				dato = galleta.getValue();
 		
-		response.getWriter().append("La cookie rescatada tenía el valor: " + dato);
+		response.getWriter().append("La cookie rescatada tenía el valor: " + dato);*/
+		
+		Enumeration nombresHeaders = request.getHeaderNames();
+		String info = "<br/>";
+		while(nombresHeaders.hasMoreElements()) {
+			String llave = (String) nombresHeaders.nextElement();
+			String valor = request.getHeader(llave);
+			info += "Nombre: " + llave + "; valor: " + valor + "<br/>";
+		}
+		response.getWriter().append(info);
 	}
 
 }

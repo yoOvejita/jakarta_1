@@ -54,8 +54,9 @@ public class coockiesController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		//
+		String nom = request.getParameter("usu");
+		response.getWriter().append("<h1>Bienvenido " + nom + "<h1>");
 	}
 
 }
