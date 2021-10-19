@@ -24,8 +24,9 @@ public class otroFiltro implements Filter {
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+		
 	}
+	
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)

@@ -3,6 +3,8 @@ package com.filtros;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.LinkedList;
+import java.util.List;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
@@ -54,7 +56,7 @@ public class UnFiltro implements Filter {
 		chain.doFilter(request, response);
 		double tiempo2 = System.currentTimeMillis();
 		out.append("<br/>Estoy en pleno filtro :D ya te pasé tu servlet<br/><br/> Tarda este tiempo (milisegundos): "+ (tiempo2-tiempo1));
-		
+		List<String> nombres = new LinkedList();
 		
 		}else {
 			PrintWriter out = response.getWriter();
